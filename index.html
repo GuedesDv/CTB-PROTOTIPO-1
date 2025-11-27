@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTB Jovem – Landing Page</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Mudança de fonte para um toque mais moderno */
+        background: #f4f4f4; /* Fundo mais suave */
+        color: #333;
+    }
+
+    /* HEADER */
+    header {
+        width: 100%;
+        background: #ffffff;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destacar o cabeçalho */
+        position: sticky; /* Sticky header para manter a navegação visível */
+        top: 0;
+        z-index: 1000;
+    }
+
+    header img {
+        height: 120px;
+        transition: transform 0.3s ease; /* Transição para o logo */
+    }
+
+    header img:hover {
+        transform: scale(1.05); /* Efeito no logo ao passar o mouse */
+    }
+
+    nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+    }
+    
+    /* Efeito de sublinhado animado na navegação */
+    nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ef2f2f;
+        transition: width 0.3s ease-out;
+    }
+
+    nav a:hover {
+        color: #ef2f2f;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    /* SEÇÕES */
+    .section-red {
+        /* Configuração de Parallax */
+        background-image: url('/IMG_7116-768x432.jpg'); /* Nova imagem de fundo */
+        background-attachment: fixed; /* O segredo do Parallax */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        /* Layout e conteúdo */
+        padding: 100px 40px; /* Mais espaço para o topo */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        color: #fff; /* Texto branco para contraste no fundo escuro */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        min-height: 80vh; /* Altura mínima para o efeito ser visível */
+    }
+
+    .section-grey {
+        background: #dbd8d2;
+        padding: 70px 40px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        color: #333;
+    }
+
+    .text-box {
+        max-width: 500px;
+    }
+
+    .text-box h2 {
+        font-size: 40px; /* Títulos maiores e mais impactantes */
+        margin-bottom: 20px;
+        font-weight: 800;
+        color: inherit;
+    }
+
+    .text-box p {
+        line-height: 1.6;
+        font-size: 17px;
+    }
+
+    /* ESTILO MODERNO E HOVER PARA BOTÕES */
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        background: #ef2f2f; /* Fundo vermelho principal */
+        color: #fff;
+        padding: 15px 40px;
+        border-radius: 5px; /* Bordas levemente arredondadas */
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: all 0.3s ease; /* Transição para o movimento suave */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #d42727; /* Cor levemente mais escura ao passar o mouse */
+        transform: translateY(-3px); /* Movimento para cima */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra maior */
+    }
+
+    .image-box img {
+        width: 450px; /* Imagens um pouco maiores */
+        height: auto;
+        border-radius: 10px; /* Bordas arredondadas */
+        object-fit: cover;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra para profundidade */
+        transition: transform 0.5s ease;
+    }
+
+    .image-box img:hover {
+        transform: scale(1.40); /* Pequeno zoom/crescimento ao passar o mouse */
+    }
+    
+    /* Invertendo a ordem na seção cinza no desktop para um layout mais dinâmico */
+    .section-grey {
+        flex-direction: row-reverse;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 50px;
+        background: #333; /* Fundo escuro para o footer */
+        color: #fff;
+    }
+
+    footer h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    footer p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    /* MOBILE */
+    @media (max-width: 992px) { /* Ponto de quebra ajustado para telas maiores */
+
+        header {
+            padding: 15px 20px;
+        }
+
+        nav {
+            display: none;
+        }
+
+        .section-red,
+        .section-grey {
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 20px;
+            gap: 30px;
+        }
+        
+        .section-red {
+            background-attachment: scroll; /* Desliga o Parallax no mobile para melhor performance */
+        }
+        
+        .section-grey {
+            flex-direction: column; /* Volta para a ordem padrão no mobile */
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .text-box {
+            max-width: 100%;
+        }
+
+        .text-box h2 {
+            font-size: 32px;
+        }
+
+        .text-box p {
+            font-size: 16px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="/Design sem nome (3).png" alt="CTB logo">
+        
+        <nav>
+            <a href="#quem">Quem somos</a>
+            <a href="#acoes">Ações</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- SEÇÃO VERMELHA -->
+    <section class="section-red" id="quem">
+        <div class="text-box">
+            <h2>CTB JOVEM</h2>
+            <p>
+                Somos jovens da Central dos Trabalhadores e Trabalhadoras do Brasil (CTB), organizados para fortalecer 
+                a luta da juventude trabalhadora. Acreditamos em emprego, direitos, educação pública e um futuro digno 
+                para todos os jovens do país.
+            </p>
+            <a class="btn" href="#">Saiba mais</a>
+        </div>
+
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+        </div>
+    </section>
+
+    <!-- SEÇÃO CINZA -->
+    <section class="section-grey" id="marca">
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1585559605151-c9c763298c3d" alt="">
+        </div>
+
+        <div class="text-box">
+            <h2>filie-se a CTB</h2>
+            <p>
+                Somos movimento, somos luta, somos futuro. Trabalhamos para organizar, formar e mobilizar jovens 
+                trabalhadores e trabalhadoras em defesa dos nossos direitos e de um Brasil mais justo.
+            </p>
+            <a class="btn" href="#">Saiba mais</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato">
+        <h3>Central dos Trabalhadores e Trabalhadoras do Brasil</h3>
+        <p>Endereço</p>
+        <p>Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Email: contato@exemplo.com</p>
+        <p>(11) 9999-9999</p>
+    </footer>
+
+</body>
+</html>
